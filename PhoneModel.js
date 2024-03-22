@@ -1,22 +1,10 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const PhoneSchema = new mongoose.Schema({
-    ten: {
-        type: String,
-        required: true
-    },
-    namSX: {
-        type: Number
-    },
-    hang: {
-        type: String,
-        required: true
-    },
-    gia: {
-        type: Number
-    }
+const PhoneSchema = new Schema({
+    ten: { type: String, required: true },
+    namSX: Number,
+    hang: { type: String, required: true },
+    gia: Number
 });
 
-const PhoneModel = new mongoose.model('phone', PhoneSchema);
-
-module.exports = PhoneModel;
+module.exports = model('phone', PhoneSchema);

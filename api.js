@@ -1,25 +1,15 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const PhoneModel = require('./PhoneModel');
 const COMMON = require('./COMMON');
-const router = express.Router();
-module.exports = router;
 
-router.get('/',(req, res)=>{
-   res.send('vao ')
+const router = express.Router();
+
+router.get('/', (req, res) => res.send('vao '));
+
+router.get('/list', async (req, res) => {
+    await mongoose.connect(COMMON.uri);
+    res.send(await PhoneModel.find());
 });
 
-const mongoose = require('mongoose');
-const  PhoneModel = require('./PhoneModel');
-
-
-
-router.get('/list', async(req,res) =>{
-    await mongoose.connect(COMMON.uri);
-
-    let phones =  await PhoneModel.find();
-     console.log(phones);
-     res.send(phones);
- 
- 
-
-})  
-
+module.exports = router;

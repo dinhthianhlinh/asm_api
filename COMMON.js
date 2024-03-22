@@ -1,4 +1,4 @@
-const uri ='mongodb+srv://linh1204:linh1204@cluster0.vvxu9o3.mongodb.net/md18306';
+const uri ='mongodb://localhost:27017/phone';
 module.exports = {
     uri: uri,
 }
